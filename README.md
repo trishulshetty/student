@@ -43,11 +43,16 @@ ai-note-agent/
    cd backend
    ```
 
-2. Update the `.env` file with your credentials:
+2. Copy the environment template and add your credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+   Then edit `.env` with your actual credentials:
    ```env
    PORT=5000
-   MONGO_URI=your_mongodb_atlas_url
-   HF_API_TOKEN=your_huggingface_token
+   MONGO_URI=your_mongodb_atlas_connection_string
+   HF_API_TOKEN=your_huggingface_api_token
    NOTION_TOKEN=your_notion_integration_token
    NOTION_DB_ID=your_notion_database_id
    ```
