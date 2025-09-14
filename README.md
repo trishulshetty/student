@@ -1,6 +1,3 @@
-Got it 👍 — the problem is that right now everything looks the same because there’s no **visual hierarchy** (same font, size, weight).
-I’ll give you a clean Markdown version with proper **headings, bold, and lists** so it’s easy to read, and also explain how you can style it in other formats (resume/Word/LaTeX).
-
 ---
 
 # AI Note-Maker & Study Planner
