@@ -1,102 +1,114 @@
+Got it 👍 — the problem is that right now everything looks the same because there’s no **visual hierarchy** (same font, size, weight).
+I’ll give you a clean Markdown version with proper **headings, bold, and lists** so it’s easy to read, and also explain how you can style it in other formats (resume/Word/LaTeX).
+
+---
+
 # AI Note-Maker & Study Planner
 
-A MERN stack application that uses AI to summarize notes and automatically saves them to Notion using free APIs.
+A MERN stack application that uses AI to create summaries of your notes and saves them directly to Notion. It relies only on free APIs and tools.
 
-## 🚀 Features
+---
 
-- **AI-Powered Summarization**: Uses Hugging Face's BART model for text summarization
-- **Notion Integration**: Automatically saves summaries to your Notion database
-- **Clean React UI**: Simple and intuitive interface with Tailwind CSS
-- **MongoDB Storage**: Stores data using MongoDB Atlas (free tier)
+## Features
 
-## 📂 Project Structure
+* **AI Summarization**: Uses Hugging Face’s BART model to generate short summaries from long text.
+* **Notion Integration**: Automatically stores the summaries in your Notion database.
+* **Simple React Interface**: A clean and user-friendly design built with Tailwind CSS.
+* **MongoDB Storage**: Data is saved using a free MongoDB Atlas cluster.
+
+---
+
+## Project Structure
 
 ```
 ai-note-agent/
 │── backend/
-│   ├── server.js        # Entry point
+│   ├── server.js          # Entry point
 │   ├── routes/
-│   │    └── notes.js    # Routes for summarize & push to Notion
+│   │    └── notes.js      # Routes for summarize & push to Notion
 │   ├── services/
-│   │    └── summarizer.js  # Hugging Face + Notion logic
-│   └── .env             # Secrets (Mongo, HuggingFace, Notion tokens)
+│   │    └── summarizer.js # Hugging Face + Notion logic
+│   └── .env               # Secrets (Mongo, HuggingFace, Notion tokens)
 │
 │── frontend/
 │   ├── src/
-│   │    ├── App.js      # React UI
+│   │    ├── App.js        # React UI
 │   │    └── index.js
 │   └── package.json
 ```
 
-## 🛠️ Setup Instructions
+---
+
+## Setup Instructions
 
 ### Prerequisites
 
-1. **MongoDB Atlas Account**: Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/atlas)
-2. **Hugging Face Account**: Get a free API token from [Hugging Face](https://huggingface.co/settings/tokens)
-3. **Notion Integration**: Create an integration and database at [Notion Developers](https://developers.notion.com/)
+* MongoDB Atlas (free account)
+* Hugging Face API token
+* Notion integration and database
 
 ### Backend Setup
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
+```bash
+cd backend
+cp .env.example .env
+```
 
-2. Copy the environment template and add your credentials:
-   ```bash
-   cp .env.example .env
-   ```
+Update `.env` with:
 
-   Then edit `.env` with your actual credentials:
-   ```env
-   PORT=5000
-   MONGO_URI=your_mongodb_atlas_connection_string
-   HF_API_TOKEN=your_huggingface_api_token
-   NOTION_TOKEN=your_notion_integration_token
-   NOTION_DB_ID=your_notion_database_id
-   ```
+```
+PORT=5000
+MONGO_URI=your_mongodb_atlas_connection_string
+HF_API_TOKEN=your_huggingface_api_token
+NOTION_TOKEN=your_notion_integration_token
+NOTION_DB_ID=your_notion_database_id
+```
 
-3. Start the backend server:
-   ```bash
-   npm start
-   ```
+Start the server:
+
+```bash
+npm start
+```
 
 ### Frontend Setup
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
+```bash
+cd frontend
+npm start
+```
 
-2. Start the React development server:
-   ```bash
-   npm start
-   ```
+Runs locally at:
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+* Frontend → [http://localhost:3000](http://localhost:3000)
+* Backend → [http://localhost:5000](http://localhost:5000)
 
-## 🔧 API Endpoints
+---
 
-- `POST /api/notes/summarize` - Summarizes text and saves to Notion
+## API Endpoint
 
-## 📝 Usage
+* `POST /api/notes/summarize` → Summarizes text and saves it to Notion.
 
-1. Open the application in your browser
-2. Paste your lecture notes or text in the textarea
-3. Click "Summarize & Save to Notion"
-4. The AI will generate a summary and automatically save it to your Notion database
+---
 
-## 🆓 Free APIs Used
+## How to Use
 
-- **Hugging Face Inference API**: Free tier for AI summarization
-- **Notion API**: Free for personal use
-- **MongoDB Atlas**: Free tier (512MB storage)
+1. Open the app in your browser.
+2. Paste notes or text into the textarea.
+3. Click **Summarize & Save**.
+4. The AI generates a summary and stores it in Notion.
 
-## 🚨 Important Notes
+---
 
-- Make sure your Notion integration has access to your database
-- The Hugging Face model may take a few seconds to respond on first use
-- Ensure your MongoDB Atlas cluster allows connections from your IP address
+## Free Tools Used
+
+* Hugging Face Inference API (summarization)
+* Notion API (storage)
+* MongoDB Atlas (database)
+
+---
+
+## Notes
+
+* Notion integration must have access to your database.
+* The first Hugging Face request may take a few seconds.
+* MongoDB Atlas must allow your IP to connect.
